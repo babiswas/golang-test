@@ -10,4 +10,6 @@ func main() {
 	p.Set_name("Bapan")
 	p.Set_id(21)
 	fmt.Println(p.Display())
+	fmt.Println(p.Work())
+	fmt.Println(p.Salary())
 }

@@ -7,6 +7,19 @@ type Person struct {
 	id   int
 }
 
+type Job interface {
+	Work() string
+	Salary() int
+}
+
+func (p *Person) Work() string {
+	return "working"
+}
+
+func (p *Person) Salary() int {
+	return 15000
+}
+
 func (p *Person) Set_name(name string) {
 	p.name = name
 }

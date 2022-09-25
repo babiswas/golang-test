@@ -2,6 +2,19 @@ package Person
 
 import "testing"
 
+type PersonTest struct {
+	name string
+	id   int
+	want string
+}
+
+var persontest = []PersonTest{
+	{"Bapan", 12, "Bapan 12"},
+	{"Madan", 21, "Madan 21"},
+	{"Kiran", 12, "Kiran 12"},
+	{"Ajay", 2, "Ajay 2"},
+}
+
 func TestNameSetting(t *testing.T) {
 	p := Person{}
 	p.Set_name("Bapan")
@@ -47,5 +60,19 @@ func TestInterfaceSalary(t *testing.T) {
 	p := Person{}
 	if p.Salary() != 15000 {
 		t.Error("Expected salary 15000 got something else.")
+	}
+}
+
+func TestPersonString(t *testing.T) {
+	p := Person{}
+	for _, val := range persontest {
+
+		p.Set_name(val.name)
+		p.Set_id(val.id)
+		got := p.Display()
+		want := val.want
+		if got != want {
+			t.Error("Test Failed")
+		}
 	}
 }

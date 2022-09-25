@@ -76,3 +76,17 @@ func TestPersonString(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkSetName(b *testing.B) {
+	p := Person{}
+	for n := 0; n < b.N; n++ {
+		p.Set_name("bapan")
+	}
+}
+
+func BenchmarkSetid(b *testing.B) {
+	p := Person{}
+	for n := 0; n < b.N; n++ {
+		p.Set_id(12)
+	}
+}
